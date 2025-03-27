@@ -27,7 +27,6 @@ class OnlineShoppingUserDaoImplTest {
   @Test
   void insertUser() {
     OnlineShoppingUser user = OnlineShoppingUser.builder()
-            .userId(2L)
             .userType(2)
             .name("张三")
             .email("zhangsan@gmail.com")

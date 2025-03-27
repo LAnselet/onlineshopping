@@ -55,26 +55,26 @@ public class OrderController {
         return modelAndView;
     }
 
-    @RequestMapping("/commodity/buy/{userId}/{commodityId}")
-    public String buy(@PathVariable("userId") long userId,
-                      @PathVariable("commodityId") long commodityId,
-                      Map<String, Object> resultMap) throws MQBrokerException, RemotingException, InterruptedException, MQClientException {
-//        OnlineShoppingOrder onlineShoppingOrder = orderService.placeOrderRedis(userId,
-//                commodityId);
+//    @RequestMapping("/commodity/buy/{userId}/{commodityId}")
+//    public String buy(@PathVariable("userId") long userId,
+//                      @PathVariable("commodityId") long commodityId,
+//                      Map<String, Object> resultMap) throws MQBrokerException, RemotingException, InterruptedException, MQClientException {
+////        OnlineShoppingOrder onlineShoppingOrder = orderService.placeOrderRedis(userId,
+////                commodityId);
+////        OnlineShoppingOrder onlineShoppingOrder =
+////                orderService.placeOrderDistributedLock(commodityId, userId);
+//
 //        OnlineShoppingOrder onlineShoppingOrder =
-//                orderService.placeOrderDistributedLock(commodityId, userId);
-
-        OnlineShoppingOrder onlineShoppingOrder =
-                orderService.placeOrderRedisFinal(commodityId, userId);
-        if (onlineShoppingOrder == null) {
-            resultMap.put("orderNo", 0);
-            resultMap.put("resultInfo", "fail");
-        } else {
-            resultMap.put("orderNo", onlineShoppingOrder.getOrderNo());
-            resultMap.put("resultInfo", onlineShoppingOrder);
-        }
-        return "order_result";
-    }
+//                orderService.placeOrderRedisFinal(commodityId, userId);
+//        if (onlineShoppingOrder == null) {
+//            resultMap.put("orderNo", 0);
+//            resultMap.put("resultInfo", "fail");
+//        } else {
+//            resultMap.put("orderNo", onlineShoppingOrder.getOrderNo());
+//            resultMap.put("resultInfo", onlineShoppingOrder);
+//        }
+//        return "order_result";
+//    }
 
     @GetMapping("/commodity/orderQuery/{orderNo}")
     public String listOrders(@PathVariable("orderNo") String orderNo,

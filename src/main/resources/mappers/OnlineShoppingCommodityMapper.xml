@@ -155,4 +155,10 @@
     set available_stock = available_stock + 1, lock_stock = lock_stock - 1
     where commodity_id = #{commodityId,jdbcType=BIGINT}
   </update>
+  <select id="queryCommodityByKeyword"
+          resultType="com.qiuzhitech.onlineshopping.db.po.OnlineShoppingCommodity">
+    SELECT <include refid="Base_Column_List" />
+    FROM online_shopping.online_shopping_commodity
+    where commodity_desc like #{keyword,jdbcType=VARCHAR};
+  </select>
 </mapper>

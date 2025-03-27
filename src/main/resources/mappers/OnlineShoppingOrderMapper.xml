@@ -126,7 +126,8 @@
       pay_time = #{payTime,jdbcType=TIMESTAMP}
     where order_id = #{orderId,jdbcType=BIGINT}
   </update>
-  <select id="queryOrderByOrderNo" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="queryOrderByOrderNo" parameterType="java.lang.String"
+          resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from online_shopping_order
